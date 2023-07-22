@@ -1,0 +1,41 @@
+@import '~../less/variables.less';
+
+.h1, .h3, .h4, .h5, .h6, h1, h3, h4, h5, h6 {
+  color: @green;
+  text-align: center;
+  font-family: 'Zilla Slab', serif;
+  font-weight: 300;
+}
+
+.h2, h2 {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: @white;
+  font-size: 1.75rem;
+  font-weight: 300;  
+  text-align: center;
+  margin: 2rem 0px;
+}
+
+h4, .h4 {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: @white;
+  font-size: 1.15rem;
+}
+
+.sub-page {
+  padding: 40px 0px 30px 0px;
+}
+
+.album-header {
+  margin-bottom: 40px;  
+}
+
+a {
+  color: @green;
+  text-decoration: underline;
+
+  &:hover,
+  &:active {
+    color: darken(@green, 20%);
+  }
+}
