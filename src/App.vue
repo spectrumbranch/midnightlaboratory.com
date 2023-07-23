@@ -25,7 +25,7 @@
 @import '~./less/global.less';
 
 body {
-  background: url("assets/background-pattern.png") @darkgray;
+  background: url("assets/images/background-pattern.png") @darkgray;
 }
 
 #app {

@@ -5,13 +5,13 @@
       <div class="row">
         <div class="col-md-6 album-section">
           <router-link role="link" to="/potent-flask" class="album-link">
-            <img class="album-img" src="../assets/potent_flask.svg" alt="Potent Flask Album Cover" aria-hidden="true" />
+            <img class="album-img" src="../assets/images/potent_flask.svg" alt="Potent Flask Album Cover" aria-hidden="true" />
             <h2>Potent Flask</h2>
           </router-link>
         </div>
         <div class="col-md-6 album-section">
           <router-link role="link" to="/commissions-vol-I" class="album-link">
-            <img class="album-img" src="../assets/commissions_volI.png" alt="Commissions Volume I Album Cover" aria-hidden="true" />
+            <img class="album-img" src="../assets/images/commissions_volI.png" alt="Commissions Volume I Album Cover" aria-hidden="true" />
             <h2>Commissions Volume I</h2>
           </router-link>
         </div>

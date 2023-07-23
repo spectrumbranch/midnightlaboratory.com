@@ -4,7 +4,7 @@
       <h1 class="h1 album-header">Potent Flask</h1>
       <div class="row">
         <div class="col-xl-4 col-lg-5">         
-          <img class="album-img" src="../assets/potent_flask.svg" alt="Potent Flask Album Cover" aria-hidden="true" />
+          <img class="album-img" src="../assets/images/potent_flask.svg" alt="Potent Flask Album Cover" aria-hidden="true" />
           <p class="album-art">Album artwork created by: 
             <a href="https://rachelhirshan.com/" 
               target="_blank"         

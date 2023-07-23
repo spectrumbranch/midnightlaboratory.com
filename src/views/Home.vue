@@ -2,7 +2,7 @@
   <article class="home">
     <section class="banner">
       <router-link role="link" class="banner-link" to="/commissions-vol-I">
-        <img class="banner-img" src="../assets/commissions_volI.png" alt="Commissions Volume I Learn More" />
+        <img class="banner-img" src="../assets/images/commissions_volI.png" alt="Commissions Volume I Learn More" />
         <div class="overlay">
           <div class="overlay-text">
             <h1 class="h1">Commissions Volume I</h1>
