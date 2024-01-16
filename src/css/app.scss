@@ -1,0 +1,36 @@
+// app global css in SCSS form
+@import './fonts.scss';
+
+body {
+  background: url("assets/background-pattern.png") $body-background;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+a {
+  color: $primary-text;
+  &:hover {
+    color: $primary-hover-text;
+  }
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
