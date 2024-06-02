@@ -9,7 +9,12 @@
       height="auto"
       class="carousel-collection"
     >
-      <q-carousel-slide v-for="(featuredSlide, index) in slides" :key="featuredSlide" :name="index" :img-src="featuredSlide">
+      <q-carousel-slide
+        v-for="(featuredSlide, index) in slides"
+        :key="featuredSlide"
+        :name="index"
+        :img-src="featuredSlide"
+      >
         <div class="carousel-slide" />
       </q-carousel-slide>
     </q-carousel>
@@ -17,21 +22,24 @@
 </template>
 
 <script lang="ts">
+import VGMACC1AlbumArtUrl from '../assets/vgm-acc-volume-i-cover.png';
 import AnamnesisAlbumArtUrl from '../assets/anamnesis.png';
 import CommissionsAlbumArtUrl from '../assets/commissions_volI.png';
 import PotentFlaskAlbumArtUrl from '../assets/potent_flask.png';
 
-import {
-  defineComponent,
-  ref,
-} from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'MusicCarousel',
-  setup () {
+  setup() {
     const carouselState = ref(0);
 
-    const featuredSlides = [AnamnesisAlbumArtUrl, CommissionsAlbumArtUrl, PotentFlaskAlbumArtUrl];
+    const featuredSlides = [
+      VGMACC1AlbumArtUrl,
+      AnamnesisAlbumArtUrl,
+      CommissionsAlbumArtUrl,
+      PotentFlaskAlbumArtUrl,
+    ];
     const slides = ref(featuredSlides);
     return {
       carouselState,
@@ -47,7 +55,6 @@ export default defineComponent({
   margin: 0 auto;
 }
 .q-carousel {
-
   &.carousel-collection {
     -webkit-box-shadow: 0 0 35px #000;
     box-shadow: 0 0 35px #000;
@@ -63,5 +70,4 @@ export default defineComponent({
     width: 500px;
   }
 }
-
 </style>

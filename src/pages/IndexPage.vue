@@ -3,10 +3,10 @@
     <section class="col">
       <article>
         <div class="banner-container">
-          <MusicCarousel/>
+          <MusicCarousel />
         </div>
         <div class="stores-container">
-          <StoreIconDisplay/>
+          <StoreIconDisplay />
         </div>
       </article>
     </section>
@@ -21,15 +21,13 @@ import StoreIconDisplay from 'components/StoreIconDisplay.vue';
 export default defineComponent({
   name: 'IndexPage',
   components: { MusicCarousel, StoreIconDisplay },
-  setup () {
+  setup() {
     return {
       //
     };
-  }
+  },
 });
 </script>
-
-
 
 <style lang="scss">
 .banner-container {
