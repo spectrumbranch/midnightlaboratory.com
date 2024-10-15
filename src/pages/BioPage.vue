@@ -33,19 +33,8 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import PianoUrl from '../assets/piano.png';
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'BioPage',
-  components: {},
-  setup() {
-    return {
-      PianoUrl,
-    };
-  },
-});
+<script setup lang="ts">
+import PianoUrl from 'src/assets/piano.png';
 </script>
 
 <style lang="scss">

@@ -3,13 +3,18 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
-          <q-btn stretch flat label="Midnight Laboratory" to="/" />
+          <q-btn
+            stretch
+            flat
+            label="Midnight Laboratory"
+            :to="{ name: 'home' }"
+          />
         </q-toolbar-title>
 
         <q-separator dark vertical />
-        <q-btn stretch flat label="Bio" to="about" />
+        <q-btn stretch flat label="Bio" :to="{ name: 'about' }" />
         <q-separator dark vertical />
-        <q-btn stretch flat label="Music" to="music" />
+        <q-btn stretch flat label="Music" :to="{ name: 'music-listing' }" />
       </q-toolbar>
     </q-header>
 
@@ -20,7 +25,9 @@
     <q-footer elevated>
       <q-toolbar class="footer-toolbar">
         <div class="footer-copyright col-md-4">
-          <q-toolbar-title>© {{ currentYear }} Copyright Midnight Laboratory</q-toolbar-title>
+          <q-toolbar-title>
+            © {{ currentYear }} Copyright Midnight Laboratory
+          </q-toolbar-title>
         </div>
         <div class="footer-social col-md-4">
           <FooterSocialMedia />
@@ -41,26 +48,19 @@
   </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import FooterSocialMedia from 'components/FooterSocialMedia.vue';
 
-export default defineComponent({
-  name: 'MainLayout',
-  components: {
-    FooterSocialMedia
-  },
-  setup () {
-    const currentYear = computed(() => new Date().getFullYear())
-    return {
-      currentYear
-    }
-  }
-});
+const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <style lang="scss">
-
+.q-header {
+  a:hover {
+    color: $primary-text;
+  }
+}
 .footer-toolbar {
   font-size: 14px;
   justify-content: center;
@@ -71,14 +71,13 @@ export default defineComponent({
 
   @media (max-width: $breakpoint-sm-max) {
     flex-direction: column;
-    .footer-copyright, .footer-social, .footer-credits {
+    .footer-copyright,
+    .footer-social,
+    .footer-credits {
       padding: 6px;
     }
   }
 }
-
-
-
 
 .footer-social {
   text-align: center;
@@ -92,7 +91,7 @@ export default defineComponent({
   }
 }
 
-.footer-copyright{
+.footer-copyright {
   text-align: center;
 
   @media (min-width: $breakpoint-md-min) {

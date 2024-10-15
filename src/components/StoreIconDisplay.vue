@@ -4,107 +4,32 @@
       <span class="showcase-title zilla-slab">Midnight Laboratory Music</span>
       <span class="now-available">Now Available</span>
     </h1>
-    <h2 class="h2">All published Midnight Laboratory music is available at the following stores/services:</h2>
+    <h2 class="h2">
+      All published Midnight Laboratory music is available at the following
+      stores/services:
+    </h2>
 
     <div class="row store-logo-section">
-      <store-icon
+      <div
         v-for="store in stores"
-        :key="store.storeId"
-        :link="store.url"
-        :ariaLabel="store.ariaLabel"
-        :altText="store.altText"
-        :imageUrl="store.image"
-      />
+        :key="store.key"
+        class="col-lg-3 col-md-4 col-6"
+      >
+        <StoreIcon :store="store" />
+      </div>
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import {
-  defineComponent,
-  ref,
-} from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import StoreIcon from 'components/StoreIcon.vue';
+import { storeDisplayOrder, storeMeta } from 'src/service/albums';
 
-import SpotifyStoreImageUrl from '../assets/store/spotify.png';
-import AppleMusicStoreImageUrl from '../assets/store/apple-music.svg';
-import AmazonStoreImageUrl from '../assets/store/amazon.png';
-import YouTubeStoreImageUrl from '../assets/store/youtube.png';
-import IHeartRadioStoreImageUrl from '../assets/store/iHeartRadio.png';
-import DeezerStoreImageUrl from '../assets/store/deezer.svg';
-import KKBoxStoreImageUrl from '../assets/store/kkbox.png';
-import TidalStoreImageUrl from '../assets/store/tidal.png';
-
-export default defineComponent({
-  name: 'StoreIconDisplay',
-  components: { StoreIcon },
-  setup () {
-    const storeData = [
-      {
-        ariaLabel: 'Play on Spotify (opens in new tab)',
-        image: SpotifyStoreImageUrl,
-        altText: 'Spotify Logo',
-        storeId: 'spotify',
-        url: 'https://open.spotify.com/artist/4BnWfLuE1vryG09kvR2Ino'
-      },
-      {
-        ariaLabel: 'Play on Apple Music (opens in new tab)',
-        image: AppleMusicStoreImageUrl,
-        altText: 'Apple Music Logo',
-        storeId: 'appleMusic',
-        url: 'https://music.apple.com/us/artist/midnight-laboratory/1265683496'
-      },
-      {
-        ariaLabel: 'Play on Amazon (opens in new tab)',
-        image: AmazonStoreImageUrl,
-        altText: 'Amazon Logo',
-        storeId: 'amazon',
-        url: 'https://www.amazon.com/music/player/artists/B074F5PRG1/midnight-laboratory'
-      },
-      {
-        ariaLabel: 'Play on YouTube (opens in new tab)',
-        image: YouTubeStoreImageUrl,
-        altText: 'YouTube Logo',
-        storeId: 'youTube',
-        url: 'https://www.youtube.com/@midnightlaboratorymusic'
-      },
-      {
-        ariaLabel: 'Play on I Heart Radio (opens in new tab)',
-        image: IHeartRadioStoreImageUrl,
-        altText: 'iHeart Radio Logo',
-        storeId: 'iHeartRadio',
-        url: 'https://www.iheart.com/artist/midnight-laboratory-32799083/'
-      },
-      {
-        ariaLabel: 'Play on Deezer (opens in new tab)',
-        image: DeezerStoreImageUrl,
-        altText: 'Deezer Logo',
-        storeId: 'deezer',
-        url: 'https://www.deezer.com/us/artist/12929179'
-      },
-      {
-        ariaLabel: 'Play on K K Box (opens in new tab)',
-        image: KKBoxStoreImageUrl,
-        altText: 'KKBox Logo',
-        storeId: 'kkBox',
-        url: 'https://www.kkbox.com/hk/tc/artist/WoKuhvPmMb0q42PW2C'
-      },
-      {
-        ariaLabel: 'Play on Tidal (opens in new tab)',
-        image: TidalStoreImageUrl,
-        altText: 'Tidal Logo',
-        storeId: 'tidal',
-        url: 'https://tidal.com/browse/artist/8985784'
-      }
-    ];
-
-    const stores = ref(storeData);
-
-    return {
-      stores,
-    };
-  },
+const genericStores = storeDisplayOrder.map((key) => {
+  return { ...storeMeta[key], key };
 });
+const stores = ref(genericStores);
 </script>
 
 <style lang="scss">
@@ -116,12 +41,11 @@ export default defineComponent({
     span {
       display: block;
     }
-
     .showcase-title {
+      font-size: 40px;
       margin-bottom: 10px;
       color: $primary-text;
     }
-
     .now-available {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
       color: #fff;
@@ -129,14 +53,13 @@ export default defineComponent({
       font-weight: 300;
     }
   }
-
   .h2 {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     color: #fff;
     font-size: 1.2rem;
     margin-bottom: 30px;
+    line-height: 28px;
   }
-
   .store-logo-section {
     justify-content: center;
     align-items: center;

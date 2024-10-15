@@ -13,20 +13,9 @@
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import MusicCarousel from 'components/MusicCarousel.vue';
 import StoreIconDisplay from 'components/StoreIconDisplay.vue';
-
-export default defineComponent({
-  name: 'IndexPage',
-  components: { MusicCarousel, StoreIconDisplay },
-  setup() {
-    return {
-      //
-    };
-  },
-});
 </script>
 
 <style lang="scss">
