@@ -284,6 +284,7 @@ export const albumMap: AlbumMap = {
         name: 'Mellifluous Dream II',
         feat: '(feat. Rachel Hirshan on flute)',
       },
+      { name: 'Mellifluous Dream III' },
       { name: 'Realization' },
       { name: 'Rebuild' },
       { name: 'Reflection' },
