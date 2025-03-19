@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import {
+  VGMACCV2Key,
   VGMACCV1Key,
   AnamnesisKey,
   CommissionsV1Key,
@@ -24,6 +25,11 @@ const routes: RouteRecordRaw[] = [
             path: '',
             name: 'music-listing',
             component: () => import('pages/MusicPage.vue'),
+          },
+          {
+            path: VGMACCV2Key,
+            name: VGMACCV2Key,
+            component: () => import('pages/VGMACCV2Page.vue'),
           },
           {
             path: VGMACCV1Key,

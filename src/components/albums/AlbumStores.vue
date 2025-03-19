@@ -21,7 +21,7 @@ const { stores = [], isHorizontal = false } = defineProps({
 });
 
 const columnClasses = computed(() => {
-  return isHorizontal ? 'col-lg-2 col-md-3 col-sm-4' : 'col-12';
+  return isHorizontal ? 'col-md-4 col-6' : 'col-12';
 });
 </script>
 <style lang="scss">

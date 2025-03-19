@@ -3,19 +3,19 @@ import SpotifyStoreImageUrl from 'assets/store/spotify.png';
 import AppleMusicStoreImageUrl from 'assets/store/apple-music.svg';
 import AmazonStoreImageUrl from 'assets/store/amazon.png';
 import YouTubeStoreImageUrl from 'assets/store/youtube.png';
-import IHeartRadioStoreImageUrl from 'assets/store/iHeartRadio.png';
-import DeezerStoreImageUrl from 'assets/store/deezer.svg';
-import KKBoxStoreImageUrl from 'assets/store/kkbox.png';
 import TidalStoreImageUrl from 'assets/store/tidal.png';
 
 // album cover art images
-import VGMACCV1AlbumArtUrl from 'assets/vgm-acc-volume-i-cover-notext.png';
+import VGMACCV1AlbumArtUrl from 'assets/vgm-acc-volume-i.png';
+import VGMACCV2AlbumArtUrl from 'assets/vgm-acc-volume-ii.png';
 import AnamnesisAlbumArtUrl from 'assets/anamnesis.png';
 import CommissionsV1AlbumArtUrl from 'assets/commissions_volI.png';
 import PotentFlaskAlbumArtUrl from 'assets/potent_flask.png';
 
 export const VGMACCV1Key =
   'video-game-music-assorted-covers-collection-volume-i';
+export const VGMACCV2Key =
+  'video-game-music-assorted-covers-collection-volume-ii';
 export const AnamnesisKey = 'anamnesis';
 export const CommissionsV1Key = 'commissions-vol-i';
 export const PotentFlaskKey = 'potent-flask';
@@ -25,9 +25,6 @@ export enum STORE_KEYS {
   APPLE_MUSIC = 'appleMusic',
   AMAZON = 'amazon',
   YOUTUBE = 'youTube',
-  I_HEART_RADIO = 'iHeartRadio',
-  DEEZER = 'deezer',
-  KK_BOX = 'kkBox',
   TIDAL = 'tidal',
 }
 
@@ -36,9 +33,6 @@ export type MusicStores = {
   [STORE_KEYS.APPLE_MUSIC]: string;
   [STORE_KEYS.AMAZON]: string;
   [STORE_KEYS.YOUTUBE]: string;
-  [STORE_KEYS.I_HEART_RADIO]?: string;
-  [STORE_KEYS.DEEZER]: string;
-  [STORE_KEYS.KK_BOX]?: string;
   [STORE_KEYS.TIDAL]: string;
 };
 
@@ -66,27 +60,12 @@ export const storeMeta: StoreMap = {
   [STORE_KEYS.AMAZON]: {
     name: 'Amazon',
     image: AmazonStoreImageUrl,
-    url: 'https://www.amazon.com/music/player/artists/B074F5PRG1/midnight-laboratory',
+    url: 'https://music.amazon.com/artists/B074F5PRG1/midnight-laboratory',
   },
   [STORE_KEYS.YOUTUBE]: {
     name: 'YouTube',
     image: YouTubeStoreImageUrl,
-    url: 'https://www.youtube.com/@midnightlaboratorymusic',
-  },
-  [STORE_KEYS.I_HEART_RADIO]: {
-    name: 'iHeart Radio',
-    image: IHeartRadioStoreImageUrl,
-    url: 'https://www.iheart.com/artist/midnight-laboratory-32799083/',
-  },
-  [STORE_KEYS.DEEZER]: {
-    name: 'Deezer',
-    image: DeezerStoreImageUrl,
-    url: 'https://www.deezer.com/us/artist/12929179',
-  },
-  [STORE_KEYS.KK_BOX]: {
-    name: 'KK Box',
-    image: KKBoxStoreImageUrl,
-    url: 'https://www.kkbox.com/hk/tc/artist/WoKuhvPmMb0q42PW2C',
+    url: 'https://www.youtube.com/@midnightlaboratorymusic', // https://music.youtube.com/channel/UCywTXq0cdEQBDGJnA01OOVQ
   },
   [STORE_KEYS.TIDAL]: {
     name: 'Tidal',
@@ -117,6 +96,7 @@ export type AlbumDisplayOrder = string[];
 export type StoreDisplayOrder = STORE_KEYS[];
 
 export const albumDisplayOrder: AlbumDisplayOrder = [
+  VGMACCV2Key,
   VGMACCV1Key,
   AnamnesisKey,
   CommissionsV1Key,
@@ -128,43 +108,60 @@ export const storeDisplayOrder: StoreDisplayOrder = [
   STORE_KEYS.APPLE_MUSIC,
   STORE_KEYS.AMAZON,
   STORE_KEYS.YOUTUBE,
-  STORE_KEYS.I_HEART_RADIO,
-  STORE_KEYS.DEEZER,
-  STORE_KEYS.KK_BOX,
   STORE_KEYS.TIDAL,
 ];
 
-export const artistMeta: ArtistMeta = {
-  stores: {
-    [STORE_KEYS.SPOTIFY]:
-      'https://open.spotify.com/artist/4BnWfLuE1vryG09kvR2Ino',
-    [STORE_KEYS.APPLE_MUSIC]:
-      'https://music.apple.com/us/artist/midnight-laboratory/1265683496',
-    [STORE_KEYS.AMAZON]:
-      'https://www.amazon.com/music/player/artists/B074F5PRG1/midnight-laboratory',
-    [STORE_KEYS.YOUTUBE]: 'https://www.youtube.com/@midnightlaboratorymusic',
-    [STORE_KEYS.I_HEART_RADIO]:
-      'https://www.iheart.com/artist/midnight-laboratory-32799083/',
-    [STORE_KEYS.DEEZER]: 'https://www.deezer.com/us/artist/12929179',
-    [STORE_KEYS.KK_BOX]:
-      'https://www.kkbox.com/hk/tc/artist/WoKuhvPmMb0q42PW2C',
-    [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/artist/8985784',
-  },
-};
-
 export const albumMap: AlbumMap = {
-  // TODO: Potent Flask and Commissions Volume I are missing from Deezer
   /**
    * Grand Slam (feat. Eggrollbuddy)
    *
    * SPOTIFY: https://open.spotify.com/album/6jZGXYfED5ERx9EoaFbd66
    * APPLE_MUSIC: https://music.apple.com/us/album/grand-slam-feat-eggrollbuddy-single/1763858821
-   * AMAZON: https://www.amazon.com/music/player/albums/B0DDJLQX6T
-   * YOUTUBE: https://www.youtube.com/watch?v=-pLNYKyER6c&list=OLAK5uy_lmLNb9hy6eH7i93H-ej-zdRzhqlCUe6zM
-   * I_HEART_RADIO: https://www.iheart.com/artist/midnight-laboratory-32799083/albums/grand-slam-feat-eggrollbuddy-284591149/
-   * DEEZER:  https://www.deezer.com/en/album/631095061
+   * AMAZON: https://music.amazon.com/albums/B0DDJLQX6T
+   * YOUTUBE: https://music.youtube.com/playlist?list=OLAK5uy_mkMAi5R2FotZcdCRFRiwW7VN4zc3e3DcM
    * TIDAL: https://tidal.com/browse/album/381948801?u
    */
+  [VGMACCV2Key]: {
+    image: VGMACCV2AlbumArtUrl,
+    title: 'Video Game Music Assorted Covers Collection Volume II',
+    trackList: [
+      {
+        name: 'Lava Reef Zone',
+        feat: '(From "Sonic & Knuckles") [feat. s0nderlust]',
+      },
+      {
+        name: 'Battle Against a Weird Opponent',
+        feat: '(From "Earthbound") [feat. Nonjo Heat Stroke]',
+      },
+      {
+        name: 'Death by Glamour',
+        feat: '(From "Undertale")',
+      },
+      { name: 'Snowman', feat: '(From "Earthbound") [feat. TehSaxophonist]' },
+      { name: 'Contemplation in Snow', feat: '(From "Genshin Impact")' },
+      {
+        name: 'Layer Cake',
+        feat: '(From "Persona 5")',
+      },
+      { name: 'Hydrocity Zone Act 2', feat: '(From "Sonic the Hedgehog 3")' },
+      {
+        name: 'Fight Against Culex',
+        feat: '(From "Super Mario RPG")',
+      },
+      { name: "Kuja's Theme", feat: '(From "Final Fantasy IX")' },
+      { name: 'Radical Dreamers', feat: '(From "Chrono Cross")' },
+    ],
+    stores: {
+      [STORE_KEYS.SPOTIFY]:
+        'https://open.spotify.com/album/4pRrvcSeXU8MR4LK0TbSOs',
+      [STORE_KEYS.APPLE_MUSIC]:
+        'https://music.apple.com/us/album/video-game-music-assorted-covers-collection-volume-ii/1798848735',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0DYL89C1G',
+      [STORE_KEYS.YOUTUBE]:
+        'https://music.youtube.com/playlist?list=OLAK5uy_kbhThTAVWWbAAhKFbfTDs8MJEiAbOTuTs',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/420544914',
+    },
+  },
   [VGMACCV1Key]: {
     image: VGMACCV1AlbumArtUrl,
     title: 'Video Game Music Assorted Covers Collection Volume I',
@@ -198,14 +195,9 @@ export const albumMap: AlbumMap = {
         'https://open.spotify.com/album/1gqtGt2BgBYSQ9GZC9gy9K',
       [STORE_KEYS.APPLE_MUSIC]:
         'https://music.apple.com/us/album/video-game-music-assorted-covers-collection-volume-i/1740205899',
-      [STORE_KEYS.AMAZON]:
-        'https://www.amazon.com/Video-Music-Assorted-Covers-Collection/dp/B0D16K81GM',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0D16K81GM',
       [STORE_KEYS.YOUTUBE]:
-        'https://www.youtube.com/watch?v=X3uNMUuWaeo&list=PLS4tRVpm3M9LHJfDPZP45rrNSO2hPTcou',
-      // [STORE_KEYS.I_HEART_RADIO]: 'TODO', // none -- TODO exclude
-      [STORE_KEYS.DEEZER]: 'https://www.deezer.com/en/album/570984081',
-      [STORE_KEYS.KK_BOX]:
-        'https://www.kkbox.com/hk/tc/album/P-vv6Ihjmaj9qo6qTG',
+        'https://music.youtube.com/playlist?list=OLAK5uy_kXgpVQXzzdpeU91wbJVNnGdoZVD9JVROA',
       [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/356178936',
     },
   },
@@ -218,15 +210,9 @@ export const albumMap: AlbumMap = {
         'https://open.spotify.com/album/6McskjQTrhzTbKBr8h6aVQ',
       [STORE_KEYS.APPLE_MUSIC]:
         'https://music.apple.com/us/album/anamnesis-single/1713091401',
-      [STORE_KEYS.AMAZON]:
-        'https://www.amazon.com/music/player/albums/B0CLZ3XVRT',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0CLZ3XVRT',
       [STORE_KEYS.YOUTUBE]:
-        'https://www.youtube.com/watch?v=ANzQsAloU1I&list=OLAK5uy_lmdJNVKVl91FQa99uOJSDzgZPY9HNbgy8',
-      [STORE_KEYS.I_HEART_RADIO]:
-        'https://www.iheart.com/artist/midnight-laboratory-32799083/albums/anamnesis-238932104/',
-      [STORE_KEYS.DEEZER]: 'https://www.deezer.com/us/album/503556261',
-      [STORE_KEYS.KK_BOX]:
-        'https://www.kkbox.com/hk/tc/album/9ayy22yDUhQp9HnEc3',
+        'https://music.youtube.com/playlist?list=OLAK5uy_lCriDV_dltRWTWFvYyf-iY02hFUbhXEqs',
       [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/323471326',
     },
   },
@@ -254,15 +240,9 @@ export const albumMap: AlbumMap = {
         'https://open.spotify.com/album/7ssCZKB1rXKaZ45Yx7YzVj',
       [STORE_KEYS.APPLE_MUSIC]:
         'https://music.apple.com/us/album/commissions-volume-i/1583627492?uo=4',
-      [STORE_KEYS.AMAZON]:
-        'https://www.amazon.com/gp/product/B09F1PXY92/ref=dm_ws_sp_ps_dp',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B09F1PXY92',
       [STORE_KEYS.YOUTUBE]:
-        'https://www.youtube.com/watch?v=OemnXDdA6qs&list=OLAK5uy_n30VXFeyADvysJlxcRyeJHfXvoJu-PITI',
-      [STORE_KEYS.I_HEART_RADIO]:
-        'https://www.iheart.com/artist/midnight-laboratory-32799083/albums/commissions-volume-i-143770437/',
-      [STORE_KEYS.DEEZER]: 'https://www.deezer.com/us/album/255374512',
-      [STORE_KEYS.KK_BOX]:
-        'https://www.kkbox.com/hk/tc/album/4wEeWqhuM7ov70F814up009H-index.html',
+        'https://music.youtube.com/playlist?list=OLAK5uy_mV40amWQl32SmUhHqq_Mr3wD64DDExLes',
       [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/195884565',
     },
   },
@@ -296,15 +276,9 @@ export const albumMap: AlbumMap = {
         'https://open.spotify.com/album/0uhbZw88pjQHESVgJPsMie',
       [STORE_KEYS.APPLE_MUSIC]:
         'https://itunes.apple.com/us/album/potent-flask/id1265928375?uo=4&amp;app=music&amp;at=1001lry3&amp;ct=dashboard',
-      [STORE_KEYS.AMAZON]:
-        'https://www.amazon.com/Potent-Flask-Midnight-Laboratory/dp/B074F9GMZC?SubscriptionId=AKIAJDS6FAHQ4U6KQBSQ&amp;tag=distrokid06-20&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B074F9GMZC/?tag=distrokid06-20',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B074F9GMZC',
       [STORE_KEYS.YOUTUBE]:
-        'https://www.youtube.com/watch?v=BhUujJnAVQw&list=OLAK5uy_luY81C2AxRV62k94ZmdtKEKFBe2nZvX8Q',
-      [STORE_KEYS.I_HEART_RADIO]:
-        'https://www.iheart.com/artist/id-32799083/albums/id-69372558',
-      [STORE_KEYS.DEEZER]: 'https://www.deezer.com/album/45555341',
-      [STORE_KEYS.KK_BOX]:
-        'https://www.kkbox.com/hk/tc/album/4Z8qitMIdcLLU0F2vKyL009H-index.html',
+        'https://music.youtube.com/playlist?list=OLAK5uy_nnnD6lP-IqK4zOkgAjHF1emSjwEf_snLk',
       [STORE_KEYS.TIDAL]: 'http://www.tidal.com/album/76914342',
     },
   },

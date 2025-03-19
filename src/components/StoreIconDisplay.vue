@@ -10,11 +10,7 @@
     </h2>
 
     <div class="row store-logo-section">
-      <div
-        v-for="store in stores"
-        :key="store.key"
-        class="col-lg-3 col-md-4 col-6"
-      >
+      <div v-for="store in stores" :key="store.key" class="col-md-4 col-6">
         <StoreIcon :store="store" />
       </div>
     </div>
