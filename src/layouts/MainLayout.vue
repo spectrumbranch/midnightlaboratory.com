@@ -22,15 +22,15 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated>
+    <q-footer reveal elevated>
       <q-toolbar class="footer-toolbar">
         <div class="footer-copyright col-md-4">
-          <q-toolbar-title>
-            © {{ currentYear }} Copyright Midnight Laboratory
-          </q-toolbar-title>
+          © {{ currentYear }} Midnight Laboratory
         </div>
         <div class="footer-social col-md-4">
           <FooterSocialMedia />
+
+          <div class="footer-email"> admin@spectrumbranch.com </div>
         </div>
         <div class="footer-credits col-md-4">
           Site Design:
@@ -73,9 +73,18 @@ const currentYear = computed(() => new Date().getFullYear());
     flex-direction: column;
     .footer-copyright,
     .footer-social,
-    .footer-credits {
-      padding: 6px;
+    .footer-credits,
+    .footer-email {
+      padding: 3px;
     }
+  }
+}
+
+.footer-copyright {
+  text-align: center;
+
+  @media (min-width: $breakpoint-md-min) {
+    text-align: left;
   }
 }
 
@@ -91,11 +100,7 @@ const currentYear = computed(() => new Date().getFullYear());
   }
 }
 
-.footer-copyright {
+.footer-email {
   text-align: center;
-
-  @media (min-width: $breakpoint-md-min) {
-    text-align: left;
-  }
 }
 </style>

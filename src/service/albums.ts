@@ -6,12 +6,16 @@ import YouTubeStoreImageUrl from 'assets/store/youtube.png';
 import TidalStoreImageUrl from 'assets/store/tidal.png';
 
 // album cover art images
-import VGMACCV1AlbumArtUrl from 'assets/vgm-acc-volume-i.png';
-import VGMACCV2AlbumArtUrl from 'assets/vgm-acc-volume-ii.png';
-import AnamnesisAlbumArtUrl from 'assets/anamnesis.png';
+import SunsetVitalityAlbumArtUrl from 'assets/sunset-vitality-ep-album-cover_500.png';
+import GrandSlamAlbumArtUrl from 'assets/eggrolldennys_500.jpg';
+import VGMACCV1AlbumArtUrl from 'assets/vgm-acc-volume-i_500.png';
+import VGMACCV2AlbumArtUrl from 'assets/vgm-acc-volume-ii_500.png';
+import AnamnesisAlbumArtUrl from 'assets/anamnesis_500.png';
 import CommissionsV1AlbumArtUrl from 'assets/commissions_volI.png';
 import PotentFlaskAlbumArtUrl from 'assets/potent_flask.png';
 
+export const SunsetVitalityKey = 'sunset-vitality';
+export const GrandSlamKey = 'grand-slam';
 export const VGMACCV1Key =
   'video-game-music-assorted-covers-collection-volume-i';
 export const VGMACCV2Key =
@@ -96,6 +100,8 @@ export type AlbumDisplayOrder = string[];
 export type StoreDisplayOrder = STORE_KEYS[];
 
 export const albumDisplayOrder: AlbumDisplayOrder = [
+  SunsetVitalityKey,
+  GrandSlamKey,
   VGMACCV2Key,
   VGMACCV1Key,
   AnamnesisKey,
@@ -112,15 +118,50 @@ export const storeDisplayOrder: StoreDisplayOrder = [
 ];
 
 export const albumMap: AlbumMap = {
-  /**
-   * Grand Slam (feat. Eggrollbuddy)
-   *
-   * SPOTIFY: https://open.spotify.com/album/6jZGXYfED5ERx9EoaFbd66
-   * APPLE_MUSIC: https://music.apple.com/us/album/grand-slam-feat-eggrollbuddy-single/1763858821
-   * AMAZON: https://music.amazon.com/albums/B0DDJLQX6T
-   * YOUTUBE: https://music.youtube.com/playlist?list=OLAK5uy_mkMAi5R2FotZcdCRFRiwW7VN4zc3e3DcM
-   * TIDAL: https://tidal.com/browse/album/381948801?u
-   */
+  [SunsetVitalityKey]: {
+    image: SunsetVitalityAlbumArtUrl,
+    title: 'Sunset Vitality',
+    trackList: [
+      {
+        name: 'Nova Lucid',
+        feat: '(feat. manythings)',
+      },
+      {
+        name: 'Rainbow Cake',
+      },
+      {
+        name: 'House Fire',
+      },
+      {
+        name: 'Nightlight',
+      },
+    ],
+    stores: {
+      [STORE_KEYS.SPOTIFY]:
+        'https://open.spotify.com/album/7cuQNKTLCH1QgourPXeHKL',
+      [STORE_KEYS.APPLE_MUSIC]:
+        'https://music.apple.com/us/album/sunset-vitality-ep/6787956709)',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0H7QJQV3D',
+      [STORE_KEYS.YOUTUBE]:
+        'https://music.youtube.com/playlist?list=OLAK5uy_nMmzV9TvNUP2AJjF1JYSKBz2zkITakBzM&si=VO78DtAjyl8qWL8L',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/540343844',
+    },
+  },
+  [GrandSlamKey]: {
+    image: GrandSlamAlbumArtUrl,
+    title: 'Grand Slam (feat. Eggrollbuddy)',
+    trackList: [{ name: 'Grand Slam', feat: '(feat. Eggrollbuddy)' }],
+    stores: {
+      [STORE_KEYS.SPOTIFY]:
+        'https://open.spotify.com/album/6jZGXYfED5ERx9EoaFbd66',
+      [STORE_KEYS.APPLE_MUSIC]:
+        'https://music.apple.com/us/album/grand-slam-feat-eggrollbuddy-single/1763858821',
+      [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0DDJLQX6T',
+      [STORE_KEYS.YOUTUBE]:
+        'https://music.youtube.com/playlist?list=OLAK5uy_mkMAi5R2FotZcdCRFRiwW7VN4zc3e3DcM',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/381948801',
+    },
+  },
   [VGMACCV2Key]: {
     image: VGMACCV2AlbumArtUrl,
     title: 'Video Game Music Assorted Covers Collection Volume II',
@@ -159,7 +200,7 @@ export const albumMap: AlbumMap = {
       [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0DYL89C1G',
       [STORE_KEYS.YOUTUBE]:
         'https://music.youtube.com/playlist?list=OLAK5uy_kbhThTAVWWbAAhKFbfTDs8MJEiAbOTuTs',
-      [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/420544914',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/420544914',
     },
   },
   [VGMACCV1Key]: {
@@ -198,7 +239,7 @@ export const albumMap: AlbumMap = {
       [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0D16K81GM',
       [STORE_KEYS.YOUTUBE]:
         'https://music.youtube.com/playlist?list=OLAK5uy_kXgpVQXzzdpeU91wbJVNnGdoZVD9JVROA',
-      [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/356178936',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/356178936',
     },
   },
   [AnamnesisKey]: {
@@ -213,7 +254,7 @@ export const albumMap: AlbumMap = {
       [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B0CLZ3XVRT',
       [STORE_KEYS.YOUTUBE]:
         'https://music.youtube.com/playlist?list=OLAK5uy_lCriDV_dltRWTWFvYyf-iY02hFUbhXEqs',
-      [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/323471326',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/323471326',
     },
   },
   [CommissionsV1Key]: {
@@ -243,7 +284,7 @@ export const albumMap: AlbumMap = {
       [STORE_KEYS.AMAZON]: 'https://music.amazon.com/albums/B09F1PXY92',
       [STORE_KEYS.YOUTUBE]:
         'https://music.youtube.com/playlist?list=OLAK5uy_mV40amWQl32SmUhHqq_Mr3wD64DDExLes',
-      [STORE_KEYS.TIDAL]: 'https://tidal.com/browse/album/195884565',
+      [STORE_KEYS.TIDAL]: 'https://tidal.com/album/195884565',
     },
   },
   [PotentFlaskKey]: {
