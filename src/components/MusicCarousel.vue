@@ -57,14 +57,11 @@ const slides = ref(featuredSlides);
     background: #1f1b16;
   }
 
-  .q-panel .carousel-slide {
-    @media (max-width: $breakpoint-xs-max) {
-      height: 300px;
-      width: 300px;
-    }
-    height: 500px;
-    width: 500px;
+  .carousel-slide {
+    height: min(500px, 70vw);
+    width: min(500px, 70vw);
   }
+
   .custom-caption {
     text-align: center;
     padding: 12px;

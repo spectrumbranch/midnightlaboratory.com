@@ -5,7 +5,7 @@
         <h1 class="music-page-header zilla-slab">
           Video Game Music Assorted Covers Collection, Volume I
         </h1>
-        <div class="row">
+        <div class="row justify-center">
           <div class="col-xl-4 col-md-5">
             <AlbumCoverArt :album="album" />
             <p class="album-art-credits">

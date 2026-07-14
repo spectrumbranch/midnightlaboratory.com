@@ -10,7 +10,11 @@
     </h2>
 
     <div class="row store-logo-section">
-      <div v-for="store in stores" :key="store.key" class="col-md-4 col-6">
+      <div
+        v-for="store in stores"
+        :key="store.key"
+        class="col-md-4 col-sm-6 store-logo-container"
+      >
         <StoreIcon :store="store" />
       </div>
     </div>
@@ -59,6 +63,9 @@ const stores = ref(genericStores);
   .store-logo-section {
     justify-content: center;
     align-items: center;
+  }
+  .store-logo-container {
+    padding: 10px;
   }
 }
 </style>

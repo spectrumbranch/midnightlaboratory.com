@@ -10,7 +10,6 @@
             :to="{ name: 'home' }"
           />
         </q-toolbar-title>
-
         <q-separator dark vertical />
         <q-btn stretch flat label="Bio" :to="{ name: 'about' }" />
         <q-separator dark vertical />

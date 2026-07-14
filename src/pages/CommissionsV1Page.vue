@@ -3,7 +3,7 @@
     <section class="col subpage">
       <article class="album-container">
         <h1 class="music-page-header zilla-slab">Commissions Volume I</h1>
-        <div class="row">
+        <div class="row justify-center">
           <div class="col-xl-4 col-md-5">
             <AlbumCoverArt :album="album" />
             <p class="album-art-credits">Album artwork created by: sarulielf</p>
